@@ -3,39 +3,39 @@ import axios from "axios"
 import { useNavigate, Link } from "react-router-dom"
 
 
-function Login() {
+function Signup() {
     const history=useNavigate();
 
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
+    const [isSubmitting, setIsSubmitting] = useState(false); // new state variable
 
-    async function submit(e){
+    async function submit(e) {
         e.preventDefault();
-
-        try{
-
-            await axios.post("http://localhost:8000/signup",{
-                email,password
-            })
-            .then(res=>{
-                if(res.data=="exist"){
-                    alert("User already exists")
-                }
-                else if(res.data=="notexist"){
-                    history("/home",{state:{id:email}})
-                }
-            })
-            .catch(e=>{
-                alert("wrong details")
+    
+        setIsSubmitting(true); // disable the button
+    
+        await axios.post("http://localhost:3000/signup", {
+            email, password
+        })
+        .then(res => {
+            if (res.data == "User added") {
+                alert("User created sucessfully");
+                history("/home", { state: { id: email } });
+            }
+        })
+        .catch(e => {
+            if (e.response && e.response.data == "User already exists") {
+                alert("User already exists");
+            }
+             else {
+                alert("An error occurred");
                 console.log(e);
-            })
-
-        }
-        catch(e){
-            console.log(e);
-
-        }
-
+            }
+        })
+        .finally(() => {
+            setIsSubmitting(false); // enable the button
+        });
     }
 
 
@@ -47,7 +47,7 @@ function Login() {
             <form action="POST">
                 <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"  />
                 <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
-                <input type="submit" onClick={submit} />
+                <button type='button' disabled={isSubmitting} onClick={submit}>Sign Up</button>
 
             </form>
 
@@ -61,4 +61,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Signup
