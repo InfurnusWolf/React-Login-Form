@@ -1,0 +1,61 @@
+Certificate{
+    font-family: sans-serif;
+    text-align: center;
+    background-color: rgb(186,163,198)
+    
+  }
+  .Certi #certificateWrapper{
+    box-shadow: 0 0 10px #000;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    top:50px;
+   
+    display:flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    
+   
+  }
+  .Certi #certificateWrapper img {
+     display: block;
+     margin-top: 20px;
+  } 
+  .Certi #certificateWrapper{
+    width:1000px;
+    height:707px;
+  
+    }
+  
+    .Certi #certificateWrapper p {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 50px;
+      color: white;
+      
+      position: absolute;
+      top:290px;
+      left: 400px;
+    
+    }
+    
+    .Certi .Meta button{
+      position: absolute;
+      align-items: center;
+      border-radius: 10%;
+       top:5px;
+      left: 650px;
+      /* background-color: rgb(103, 153, 209); */
+      font-family: 'Times New Roman', Times, serif;
+      font-size:20px;
+    }
+  
+    .Certi #certificateWrapper #level {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 35px;
+      color: white;
+      
+      position: absolute;
+      top:380px;
+      left: 710px;
+    
+    }
