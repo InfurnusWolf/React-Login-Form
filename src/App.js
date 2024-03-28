@@ -21,6 +21,11 @@ import data from "./components/data"
 import Page from "./components/Page"
 import Level from "./components/Level"
 import Certificate from "./components/Certificate"
+import Navbar from "./components/Navbar"
+import Services from "./components/Services"
+import About from "./components/About"
+import Contact from "./components/Contact"
+import "./components/Page.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -37,6 +42,10 @@ function App() {
           <Route path="/Certificate" element={<Certificate/>}/>
           <Route path="/Level" element={<Level/>}/>
           <Route path="/" element={<Page/>}/>
+          <Route path="/Navbar" element={<Navbar/>}/>
+          <Route path="/Services" element={<Services/>}/>
+          <Route path="/About" element={<About/>}/>
+          <Route path="/Contact" element={<Contact/>}/>
         </Routes>
       </Router>
     </div>

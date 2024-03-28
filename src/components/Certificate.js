@@ -25,7 +25,7 @@ class certificate extends Component {
     if (location && location.state) {
       this.setState({
         Name: location.state.username, // Replace 'username' with the actual property name
-        IQ: location.state.score, // Replace 'score' with the actual property name
+        // IQ: location.state.score, // Replace 'score' with the actual property name
       });
     }
   }

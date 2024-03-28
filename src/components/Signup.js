@@ -182,9 +182,9 @@ function Signup() {
                 <input type="username" onChange={(e) => { setusername(e.target.value)}} placeholder="Username"/>
                 <input type="email" onChange={(e) => { setEmail(e.target.value) }} placeholder="Email"  />
                 <select value={userClass} onChange={(e) => { setuserClass(e.target.value) }}>
-                    <option value="">Select Class</option>
+                    <option value="">Select Age</option>
                     {[...Array(10)].map((_, i) => 
-                        <option key={i} value={i+1}>Class {i+1}</option>
+                        <option key={i} value={i+1}>Age {i+5}</option>
                     )}
                 </select>
                 <input type="password" onChange={(e) => { setPassword(e.target.value) }} placeholder="Password" />
