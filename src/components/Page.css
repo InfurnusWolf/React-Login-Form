@@ -179,26 +179,17 @@
     line-height: 1.5;
   } */
 
+  
 #Page{
-  /* background-image: url(https://i.pinimg.com/originals/cd/43/95/cd4395e238e4e76887d4c2dbf8c1cdc9.jpg); */
- /* background-image: ur(https://png.pngtree.com/thumb_back/fh260/background/20191106/pngtree-back-to-school-rectangular-blackboard-education-book-pen-holder-image_321417.jpg); */
-/* background-image: url(https://www.printasia.in/media/catalog/product/a/-/a-n-3_book_shop_.jpg); */
-
-  /* background:rgb(0,101,219);
-  
-  background:linear-gradient(90deg,rgb(0,101,219) 50%,rgba(0,212,255,1)100%); */
-  /* background-image: url(https://img.freepik.com/premium-photo/stack-books-stationery-background-school-board-education-back-school-concept_147376-3505.jpg); */
-  /* background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20191106/pngtree-back-to-school-rectangular-blackboard-education-book-pen-holder-image_321417.jpg); */
-  
   background-image: url(https://png.pngtree.com/background/20220716/original/pngtree-blackboard-background-design-of-college-entrance-examination-book-stack-picture-image_1641341.jpg);
-  /* background-image: url(https://i.pinimg.com/originals/6e/9f/ac/6e9facc2b93664bd8814194dd693954d.jpg); */
-  /* background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20190223/ourmid/pngtree-fresh-chalkboard-stationery-ad-background-backgroundblackboardhand-paintedbooktextbookstationeryfreshknow-how-image_75849.jpg); */
-  /* background-image:url(https://media.istockphoto.com/id/1465649384/photo/back-to-school-copt-schonceol-supplies-on-black-board-background.webp?b=1&s=170667a&w=0&k=20&c=PDdxCnftkLL5NpO8IRd0f9uO_kxl-1wTVBzy0h4ji1U=) ; */
- /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPD8blfiLYwcNGH7olBIYjncGt27IJkCPcBPNZ3kVRGXm00QNfJU-SwsSI5B6P0wH0R9s&usqp=CAU); */
- /* background-image: url(https://i.pinimg.com/736x/88/d5/79/88d579cf5f9bb4d10784045ac03a32f4.jpg);  */
- /* background-image: url(https://cdn.cbeditz.com/cbeditz/preview/book-education-powerpoint-background-download-11624479925hfcv20yrr5.jpeg); */
- min-height:500px;
- 
+  min-height:93vh;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  justify-content:center;
+  flex-direction: column;
+  z-index: 0;
+
   
 }
 .card{
@@ -208,7 +199,6 @@
   cursor:pointer;
   box-shadow:0 .5rem 1rem rgba(0,0,0,.25);
 } 
-
 
 
 /* body {
@@ -227,12 +217,6 @@
   text-align: center;
 }
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  padding: 0 15px;
-  margin: 0 auto;
-}
 
 .display-4 {
   font-size: 4rem;

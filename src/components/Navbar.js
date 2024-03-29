@@ -2,9 +2,8 @@ import react from "react";
 
 const Navbar = () => {
   return (
-    <div>
-      <nav className="navbar navbar-expand-lg navbar-light shadow">
-        <div className="container">
+    <div style={{backgroundColor:"white"}}> 
+         <nav className="navbar navbar-expand-lg navbar-light shadow mt-0">
           <button
             className="navbar-toggler"
             type="button"
@@ -49,8 +48,7 @@ const Navbar = () => {
               <i className="fa fa-user-plus me-2"></i>Register
             </button>
           </div>
-        </div>
-      </nav>
+        </nav>
     </div>
   );
 };

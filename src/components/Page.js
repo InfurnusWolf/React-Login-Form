@@ -114,8 +114,8 @@ const Page = () => {
     <div>
       <Navbar />
       <section id="Page">
-        <div className="container">
-          <div className="row justify-content-center">
+        <div className="container-fluid h-100">
+          <div className="row justify-content-center align-items-center h-100">
             <div className="col-md-8">
               <h1 className="display-4 fw-bolder mb-4 text-center text-black">
                 Unlock your mind's potential

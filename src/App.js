@@ -1,18 +1,3 @@
-// import './App.css'
-// import React from "react";
-// import "./App.css";
-// import Quiz from "./components/Quiz";
-
-
-// const App=()=>{
-//   return(
-//     <>
-//       <Quiz/>
-      
-
-//     </>
-// );
-// }
 import Home from "./components/Home"
 import Login from "./components/Login"
 import Signup from "./components/Signup"
@@ -28,7 +13,7 @@ import Contact from "./components/Contact"
 import "./components/Page.css"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
