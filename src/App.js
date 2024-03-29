@@ -11,8 +11,10 @@ import Services from "./components/Services"
 import About from "./components/About"
 import Contact from "./components/Contact"
 import "./components/Page.css"
+import "./components/merit"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
+import Merit from "./components/merit"
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
           <Route path="/Services" element={<Services/>}/>
           <Route path="/About" element={<About/>}/>
           <Route path="/Contact" element={<Contact/>}/>
+          <Route path="/Merit"  element={<Merit/>}/>
         </Routes>
       </Router>
     </div>

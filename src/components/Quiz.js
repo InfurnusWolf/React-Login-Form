@@ -399,6 +399,7 @@ return (
           <h2>You Scored {score} out of 5</h2>
           <h3>Your IQ-like Score: {calculateIQ()}</h3>
           <button onClick={reset}>Reset</button>
+          <button><a href="./Certificate">Get Certificate</a></button>
         </>
       ) : (
         <>

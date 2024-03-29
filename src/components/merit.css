@@ -1,0 +1,62 @@
+body{
+    background-color:rgb(186, 163, 198);
+  }
+  .App{
+    font-family: sans-serif;
+    text-align: center;
+    
+    
+  }
+  .App #certificateWrapper{
+    box-shadow: 0 0 10px #000;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    top:50px;
+    left:250px;
+    bottom:50px;
+    justify-content: center;
+   
+    margin-bottom: 15px;
+    
+   
+  }
+  .App #certificateWrapper img {
+     display: block;
+  } 
+  .App #certificateWrapper{
+    width:1000px;
+    height:707px;
+  
+    }
+  
+  .App #certificateWrapper p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 50px;
+    color: white;
+    
+    position: absolute;
+    top:250px;
+    left: 400px;
+  
+  }
+  
+  .App .Meta button{
+    position: absolute;
+     top:5px;
+    left: 725px;
+    background-color: rgb(103, 153, 209);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+  }
+  
+  .App #certificateWrapper #level {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 35px;
+    color: white;
+    
+    position: absolute;
+    top:385px;
+    left:600px;
+  
+  }
