@@ -116,11 +116,11 @@ const Page = () => {
       <section id="Page">
         <div className="container-fluid h-100">
           <div className="row justify-content-center align-items-center h-100">
-            <div className="col-md-8">
-              <h1 className="display-4 fw-bolder mb-4 text-center text-black">
+            <div className="col-md-8 move-up">
+              <h1 className="display-4 fw-bolder mb-4 text-center text-white">
                 Unlock your mind's potential
               </h1>
-              <p className="lead text-center fs-4 mb-5 text-black">
+              <p className="lead text-center fs-4 mb-5 text-white">
                 Get ready for a quiz extravaganza! Explore different topics and
                 prove your expertise ,Unleash your inner quizmaster! Engage in
                 mind-boggling quizzes , compete for the top spot And Expand your
@@ -134,7 +134,7 @@ const Page = () => {
                   Get Quote
                 </button>
                 <button
-                  className="btn btn-outlight-light
+                  className="btn btn-light me-4
                                  rounded-pill px-4 py-2"
                 >
                   Our Services

@@ -42,11 +42,15 @@ const Navbar = () => {
               Wizkids
             </a>
             <button className="btn btn-outline-primary ms-auto px-4 rounded-pill">
-              <i className="fa fa-sign-in me-2"></i> Login
-            </button>
-            <button className="btn btn-outline-primary ms-2 px-4 rounded-pill">
-              <i className="fa fa-user-plus me-2"></i>Register
-            </button>
+  <a href="./Login" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+    <i className="fa fa-sign-in me-2"></i> Login
+  </a>
+</button>
+<button className="btn btn-outline-primary ms-2 px-4 rounded-pill">
+  <a href="./Signup" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+    <i className="fa fa-user-plus me-2"></i>Register
+  </a>
+</button>
           </div>
         </nav>
     </div>

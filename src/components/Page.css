@@ -199,7 +199,9 @@
   cursor:pointer;
   box-shadow:0 .5rem 1rem rgba(0,0,0,.25);
 } 
-
+.move-up {
+  margin-top: -500px; /* Adjust this value as needed */
+}
 
 /* body {
   margin: 0;

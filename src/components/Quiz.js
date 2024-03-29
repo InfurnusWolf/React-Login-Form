@@ -1,149 +1,45 @@
-// // import React, { useState, useEffect } from 'react';
-// // import './Quiz.css';
-// // const Quiz = () => {
-  
-// //   const quizQuestions = [
-// //     {
-// //       question: 'What is the capital of France?',
-// //       options: ['Paris', 'Berlin', 'Rome', 'Madrid'],
-// //       answer: 'Paris',
-// //     },
-// //     {
-// //       question: 'Which planet is known as the Red Planet?',
-// //       options: ['Earth', 'Mars', 'Venus', 'Jupiter'],
-// //       answer: 'Mars',
-// //     },
-// //     {
-// //       question: 'Who wrote "Romeo and Juliet"?',
-// //       options: ['Charles Dickens', 'Jane Austen', 'William Shakespeare', 'Mark Twain'],
-// //       answer: 'William Shakespeare',
-// //     },
-// //   ];
-
-
-// //   const [currentQuestion, setCurrentQuestion] = useState(0);
-// //   const [userAnswer, setUserAnswer] = useState(null);
-// //   const [score, setScore] = useState(0);
-// //   const [timer, setTimer] = useState(60); // Set initial timer value in seconds
-// //   const [quizCompleted, setQuizCompleted] = useState(false);
-
-// //   useEffect(() => {
-// //     const timerInterval = setInterval(() => {
-// //       setTimer((prevTimer) => prevTimer - 1);
-// //     }, 1000);
-
-// //     return () => {
-// //       clearInterval(timerInterval);
-// //     };
-// //   }, []);
-
-// //   useEffect(() => {
-// //     if (timer === 0) {
-// //       endQuiz();
-// //     }
-// //   }, [timer]);
-
-// //   const handleAnswer = (selectedAnswer) => {
-// //     setUserAnswer(selectedAnswer);
-// //   };
-
-// //   const handleSubmit = () => {
-// //     if (userAnswer === quizQuestions[currentQuestion].answer) {
-// //       setScore((prevScore) => prevScore + 1);
-// //     }
-// //   };
-
-// //   const handleNext = () => {
-// //     if (currentQuestion < quizQuestions.length - 1) {
-// //       setCurrentQuestion((prevQuestion) => prevQuestion + 1);
-// //       setUserAnswer(null); // Reset user's answer for the next question
-// //     } else {
-// //       endQuiz();
-// //     }
-// //   };
-
-// //   const endQuiz = () => {
-// //     // Handle quiz completion logic, e.g., show results
-// //     setQuizCompleted(true);
-// //   };
-
-// //   return (
-// //     <div className="quiz-app">
-// //       {quizCompleted ? (
-// //         <div className="quiz-results">
-// //           <h1>Quiz Completed!</h1>
-// //           <p>Your score: {score} out of {quizQuestions.length}</p>
-// //         </div>
-// //       ) : (
-// //         <div className="quiz-content">
-// //           <p>Timer: {timer} seconds</p>
-// //           <h2>{quizQuestions[currentQuestion].question}</h2>
-// //           {/* Display options for the current question */}
-// //           {quizQuestions[currentQuestion].options.map((option) => (
-// //             <button
-// //               key={option}
-// //               onClick={() => handleAnswer(option)}
-// //               disabled={userAnswer !== null}
-// //             >
-// //               {option}
-// //             </button>
-// //           ))}
-// //           <button onClick={handleSubmit} disabled={userAnswer === null}>
-// //             Submit
-// //           </button>
-// //           <button onClick={handleNext}>Next</button>
-// //         </div>
-// //       )}
-// //     </div>
-// //   );
-// // };
-
-// // export default Quiz;
-// // import React, { useRef, useState } from "react";
-// // import { useNavigate, Link } from "react-router-dom";
-// // import "./Quiz.css";
-// // import { data } from "./data";
-
-// // const Quiz = () => {
-// //   let [index, setIndex] = useState(0);
-// //   let [question, setQuestion] = useState(data[index]);
-// import React, { useRef, useState, useEffect } from "react";
-// import { useNavigate, Link } from "react-router-dom";
+// import React, { useRef, useState } from "react";
 // import "./Quiz.css";
-// import { data } from "./data";
+// import QuizSettings from "./QuizSettings";
+// import { class1Questions } from "./class1Questions";
+// import { class2Questions } from "./class2Questions";
+// import { class3Questions } from "./class3Questions";
+// import { class4Questions } from "./class4Questions";
+// import { class5Questions } from "./class5Questions";
+// // ... (import other class question files)
 
-// // Function to shuffle an array
-// function shuffle(array) {
-//   var currentIndex = array.length, temporaryValue, randomIndex;
-
-//   // While there remain elements to shuffle...
-//   while (0 !== currentIndex) {
-
-//     // Pick a remaining element...
-//     randomIndex = Math.floor(Math.random() * currentIndex);
-//     currentIndex -= 1;
-
-//     // And swap it with the current element.
-//     temporaryValue = array[currentIndex];
-//     array[currentIndex] = array[randomIndex];
-//     array[randomIndex] = temporaryValue;
-//   }
-
-//   return array;
-// }
+// const classQuestions = [class1Questions ,class1Questions, class2Questions, class3Questions,class4Questions,class5Questions]; // Add other class question arrays
 
 // const Quiz = () => {
-//   // Shuffle the data array and get the first 5 elements
-//   const quizData = shuffle(data).slice(0, 5);
-
 //   let [index, setIndex] = useState(0);
-//   let [question, setQuestion] = useState(quizData[index]);
-//   // Rest of your code...
+//   let [question, setQuestion] = useState(classQuestions[0][index]);
 //   let [lock, setLock] = useState(false);
 //   let [score, setScore] = useState(0);
 //   let [result, setResult] = useState(false);
-//   let [timeLeft, setTimeLeft] = useState(30);
-  
+//   let [timeLeft, setTimeLeft] = useState(20);
+//   const [quizStarted, setQuizStarted] = useState(false);
+//   const [selectedClass, setSelectedClass] = useState(null);
+//   const [selectedLevel, setSelectedLevel] = useState(null);
+
+//   const startQuiz = (selectedClass, selectedLevel) => {
+//     setSelectedClass(selectedClass);
+//     setSelectedLevel(selectedLevel);
+//     setQuizStarted(true);
+//     setTimeLeft(20);
+
+//     let questionFile;
+//     if (selectedLevel === "easy") {
+//       questionFile = classQuestions[selectedClass];
+//     } else if (selectedLevel === "medium") {
+//       questionFile = classQuestions[selectedClass + 1];
+//     } else if (selectedLevel === "hard") {
+//       questionFile = classQuestions[selectedClass + 2];
+//     } else {
+//       // Handle other levels if needed
+//     }
+
+//     setQuestion(questionFile[0]);
+//   };
 
 //   let Option1 = useRef(null);
 //   let Option2 = useRef(null);
@@ -152,65 +48,59 @@
 
 //   let option_array = [Option1, Option2, Option3, Option4];
 
+
+
 //   const checkAns = (e, ans) => {
 //     if (lock === false) {
-//       if (question.ans === ans) {
+//       const correctAnswer = classQuestions[selectedClass][index].ans;
+//       if (correctAnswer === ans) {
 //         e.target.classList.add("correct");
 //         setLock(true);
 //         setScore((prev) => prev + 1);
 //       } else {
 //         e.target.classList.add("wrong");
+//         option_array[correctAnswer - 1].current.classList.add("correct");
 //         setLock(true);
-//         option_array[question.ans - 1].current.classList.add("correct");
 //       }
 //     }
 //   };
+  
+  
 
 //   const next = () => {
 //     if (lock === true) {
-//       if (index === quizData.length - 1) { // Use quizData.length instead of data.length
+//       const totalQuestions = classQuestions[selectedClass].length;
+//       if (index === totalQuestions - 1) {
 //         setResult(true);
 //         return 0;
 //       }
 //       setIndex((prevIndex) => prevIndex + 1);
-//       setQuestion(quizData[index + 1]); // Use quizData instead of data
+//       setQuestion(classQuestions[selectedClass][index + 1]);
 //       setLock(false);
-//       setTimeLeft(30);
+//       setTimeLeft(20);
 //       option_array.forEach((option) => {
 //         option.current.classList.remove("wrong");
 //         option.current.classList.remove("correct");
 //       });
 //     }
 //   };
+  
 
-//   // const next = () => {
-//   //   if (lock === true) {
-//   //     if (index === data.length - 1) {
-//   //       setResult(true);
-//   //       return 0;
-//   //     }
-//   //     setIndex((prevIndex) => prevIndex + 1);
-//   //     setQuestion(quizData[index + 1]);
-//   //     setLock(false);
-//   //     setTimeLeft(30);
-//   //     option_array.forEach((option) => {
-//   //       option.current.classList.remove("wrong");
-//   //       option.current.classList.remove("correct");
-//   //     });
-//   //   }
-//   // };
 
 //   const getButtonLabel = () => {
-//     return index === quizData.length - 1 ? "Submit" : "Next";
+//     const totalQuestions = classQuestions[selectedClass].length;
+//     return index === totalQuestions - 1 ? "Submit" : "Next";
 //   };
+  
 
 //   const reset = () => {
 //     setIndex(0);
-//     setQuestion(quizData[0]);
+//     setQuestion(classQuestions[selectedClass][0]);
 //     setScore(0);
 //     setLock(false);
 //     setResult(false);
-//     setTimeLeft(30);
+//     setTimeLeft(20);
+//     setQuizStarted(false); // Add this line to reset the quiz
 //   };
 
 //   React.useEffect(() => {
@@ -222,36 +112,50 @@
 //       return () => {
 //         clearInterval(timer);
 //       };
-//     } else if (timeLeft === 0 && lock === false) {
-//       // Automatically submit the quiz when the timer hits 0
-//       // submitQuiz();
-//       setIndex((prevIndex)=>prevIndex+1);
-//       setQuestion(quizData[index+1]);
-//       setTimeLeft(30);
 //     }
-//   }, [timeLeft, lock]);
   
-//   // const submitQuiz = () => {
-//   //   // Additional logic to handle quiz submission
-//   //   setResult(true);
-//   // };
-//   const calculateIQ= () => {
-//     const rawIQ = (score/5)*100
-//     const normalizedIQ = (rawIQ/100)*15 + 100;
+//     if (timeLeft === 0 && lock === false) {
+//       if (index === classQuestions[selectedClass].length - 1) {
+//         // If it's the last question, automatically submit the quiz
+//         // submitQuiz();
+//         setIndex((prevIndex) => prevIndex + 1);
+//         setQuestion(classQuestions[selectedClass][index + 1]);
+//       } else {
+//         // Move to the next question
+//         setIndex((prevIndex) => prevIndex + 1);
+//       setQuestion(classQuestions[selectedClass][index + 1]);
+//       setLock(false);
+//       setTimeLeft(20);
+//       }
+//     }
+//   }, [timeLeft, lock, index, selectedClass, classQuestions]);
+  
+  
+//   const submitQuiz = () => {
+//     // Additional logic to handle quiz submission
+//     setResult(true);
+//   };
+
+//   const calculateIQ = () => {
+//     // Assuming each correct answer contributes equally to the IQ score
+//     const rawIQ = (score / classQuestions[selectedClass].length) * 100;
+
+//     // IQ scores are typically normalized with a mean of 100 and a standard deviation of 15
+//     const normalizedIQ = (rawIQ / 100) * 15 + 100;
+
 //     return Math.round(normalizedIQ);
 //   };
 
-//   return (
-//     <div className="container">
-//       <h1>Quiz App </h1>
-//       <hr />
-//       {result ? (
+
+
+// return (
+//   <div className="container">
+//     {quizStarted ? (
+//       result ? (
 //         <>
-//           <h2>You Scored {score} out of {quizData.length}</h2>
-//           <h3>Your IQ-like Score:{calculateIQ()}</h3>
+//           <h2>You Scored {score} out of {classQuestions[selectedClass].length}</h2>
+//           <h3>Your IQ-like Score: {calculateIQ()}</h3>
 //           <button onClick={reset}>Reset</button>
-//           {/* <Link to={{pathname: '/certificate',state: { username: 'John Doe', score: 100 }}}>Go to Certificate</Link> */}
-//           <Link to="/Certificate"><button className="certificate">Go to Certificate</button></Link>
 //         </>
 //       ) : (
 //         <>
@@ -272,18 +176,17 @@
 //           </ul>
 //           <button onClick={next}>{getButtonLabel()}</button>
 //           <div className="index">
-//             {index + 1} of {quizData.length} questions
-//             </div>
-//           {/* <div className="index">
-//             {index + 1} of {data.length} questions
-//           </div> */}
+//             {index + 1} of {classQuestions[selectedClass].length} questions
+//           </div>
 //           <div className="timer">Time Left: {timeLeft}</div>
-          
 //         </>
-//       )}
-//     </div>
-//   );
-// };
+//       )
+//     ) : (
+//       <QuizSettings onStartQuiz={startQuiz} />
+//     )}
+//   </div>
+// );
+//     }
 
 // export default Quiz;
 
@@ -296,13 +199,20 @@ import { class2Questions } from "./class2Questions";
 import { class3Questions } from "./class3Questions";
 import { class4Questions } from "./class4Questions";
 import { class5Questions } from "./class5Questions";
+import { class6Questions } from "./class6Questions";
+import { class7Questions } from "./class7Questions";
+import { class8Questions } from "./class8Questions";
+import { class9Questions } from "./class9Questions";
+import { class10Questions } from "./class10Questions";
+import { class11Questions } from "./class11Questions";
+import { class12Questions } from "./class12Questions";
 // ... (import other class question files)
 
-const classQuestions = [class1Questions,class1Questions, class2Questions, class3Questions,class4Questions,class5Questions]; // Add other class question arrays
+const classQuestions = [class1Questions ,class1Questions, class2Questions, class3Questions,class4Questions,class5Questions,class6Questions,class7Questions,class8Questions,class9Questions,class10Questions,class11Questions,class12Questions]; // Add other class question arrays
 
 const Quiz = () => {
   let [index, setIndex] = useState(0);
-  let [question, setQuestion] = useState(classQuestions[0][index]);
+  let [question, setQuestion] = useState(null);
   let [lock, setLock] = useState(false);
   let [score, setScore] = useState(0);
   let [result, setResult] = useState(false);
@@ -310,13 +220,15 @@ const Quiz = () => {
   const [quizStarted, setQuizStarted] = useState(false);
   const [selectedClass, setSelectedClass] = useState(null);
   const [selectedLevel, setSelectedLevel] = useState(null);
+  const [selectedQuestions, setSelectedQuestions] = useState([]);
+
 
   const startQuiz = (selectedClass, selectedLevel) => {
     setSelectedClass(selectedClass);
     setSelectedLevel(selectedLevel);
     setQuizStarted(true);
     setTimeLeft(20);
-
+  
     let questionFile;
     if (selectedLevel === "easy") {
       questionFile = classQuestions[selectedClass];
@@ -327,9 +239,21 @@ const Quiz = () => {
     } else {
       // Handle other levels if needed
     }
-
-    setQuestion(questionFile[0]);
+  
+    const shuffledQuestions = questionFile.sort(() => Math.random() - 0.5);
+    const selectedQuestions = [];
+    
+    // Select 5 unique questions
+    while (selectedQuestions.length < 5 && shuffledQuestions.length > 0) {
+      const randomIndex = Math.floor(Math.random() * shuffledQuestions.length);
+      const selectedQuestion = shuffledQuestions.splice(randomIndex, 1)[0];
+      selectedQuestions.push(selectedQuestion);
+    }
+  
+    setSelectedQuestions(selectedQuestions);
+    setQuestion(selectedQuestions[0]);
   };
+  
 
   let Option1 = useRef(null);
   let Option2 = useRef(null);
@@ -342,7 +266,7 @@ const Quiz = () => {
 
   const checkAns = (e, ans) => {
     if (lock === false) {
-      const correctAnswer = classQuestions[selectedClass][index].ans;
+      const correctAnswer = selectedQuestions[index].ans;
       if (correctAnswer === ans) {
         e.target.classList.add("correct");
         setLock(true);
@@ -356,16 +280,16 @@ const Quiz = () => {
   };
   
   
-
+  
   const next = () => {
     if (lock === true) {
-      const totalQuestions = classQuestions[selectedClass].length;
+      const totalQuestions = selectedQuestions.length; // Use selectedQuestions instead of classQuestions
       if (index === totalQuestions - 1) {
         setResult(true);
-        return 0;
+        return;
       }
       setIndex((prevIndex) => prevIndex + 1);
-      setQuestion(classQuestions[selectedClass][index + 1]);
+      setQuestion(selectedQuestions[index + 1]); // Update the question based on the new index
       setLock(false);
       setTimeLeft(20);
       option_array.forEach((option) => {
@@ -392,32 +316,7 @@ const Quiz = () => {
     setTimeLeft(20);
     setQuizStarted(false); // Add this line to reset the quiz
   };
-  
-  
 
-  
-
-  // React.useEffect(() => {
-  //   if (timeLeft > 0 && lock === false) {
-  //     const timer = setInterval(() => {
-  //       setTimeLeft((prevTime) => prevTime - 1);
-  //     }, 1000);
-  
-  //     return () => {
-  //       clearInterval(timer);
-  //     };
-  //   } else if (timeLeft === 0 && lock === false) {
-  //     if (index === classQuestions[selectedClass].length - 1) {
-  //       // If it's the last question, automatically submit the quiz
-  //       submitQuiz();
-  //     } else {
-  //       // Move to the next question
-  //       setIndex((prevIndex) => prevIndex + 1);
-  //       setQuestion(classQuestions[selectedClass][index + 1]);
-  //       setTimeLeft(20);
-  //     }
-  //   }
-  // }, [timeLeft, lock, index, selectedClass, classQuestions]);
   React.useEffect(() => {
     if (timeLeft > 0 && lock === false) {
       const timer = setInterval(() => {
@@ -432,11 +331,15 @@ const Quiz = () => {
     if (timeLeft === 0 && lock === false) {
       if (index === classQuestions[selectedClass].length - 1) {
         // If it's the last question, automatically submit the quiz
-        submitQuiz();
+        // submitQuiz();
+        setIndex((prevIndex) => prevIndex + 1);
+        setQuestion(classQuestions[selectedClass][index + 1]);
       } else {
         // Move to the next question
         setIndex((prevIndex) => prevIndex + 1);
-        setQuestion(classQuestions[selectedClass][index + 1]);
+      setQuestion(classQuestions[selectedClass][index + 1]);
+      setLock(false);
+      setTimeLeft(20);
       }
     }
   }, [timeLeft, lock, index, selectedClass, classQuestions]);
@@ -447,14 +350,43 @@ const Quiz = () => {
     setResult(true);
   };
 
+  // const calculateIQ = () => {
+  //   // Assuming each correct answer contributes equally to the IQ score
+  //   const rawIQ = (score / classQuestions[selectedClass].length) * 100;
+
+  //   // IQ scores are typically normalized with a mean of 100 and a standard deviation of 15
+  //   const normalizedIQ = (rawIQ / 100) * 15 + 100;
+
+  //   return Math.round(normalizedIQ);
+  // };
+
   const calculateIQ = () => {
-    // Assuming each correct answer contributes equally to the IQ score
-    const rawIQ = (score / classQuestions[selectedClass].length) * 100;
-
+    // Define point multipliers for different difficulty levels
+    const difficultyMultiplier = {
+      easy: 1,
+      medium: 1.5,
+      hard: 2
+    };
+  
+    // Define point multipliers for different classes
+    const classMultiplier = {
+      1: 1,
+      2: 1.2,
+      3: 1.4,
+      4: 1.6,
+      5: 1.8
+    };
+  
+    // Calculate raw score based on the number of correct answers
+    const rawScore = score * difficultyMultiplier[selectedLevel] * classMultiplier[selectedClass];
+  
+    // Normalize raw score to IQ-like score
+    const normalizedIQ = (rawScore / classQuestions[selectedClass].length) * 100;
+  
     // IQ scores are typically normalized with a mean of 100 and a standard deviation of 15
-    const normalizedIQ = (rawIQ / 100) * 15 + 100;
-
-    return Math.round(normalizedIQ);
+    const normalizedIQScore = (normalizedIQ / 100) * 15 + 100;
+  
+    return Math.round(normalizedIQScore);
   };
 
 
@@ -464,7 +396,7 @@ return (
     {quizStarted ? (
       result ? (
         <>
-          <h2>You Scored {score} out of {classQuestions[selectedClass].length}</h2>
+          <h2>You Scored {score} out of 5</h2>
           <h3>Your IQ-like Score: {calculateIQ()}</h3>
           <button onClick={reset}>Reset</button>
         </>
@@ -487,7 +419,7 @@ return (
           </ul>
           <button onClick={next}>{getButtonLabel()}</button>
           <div className="index">
-            {index + 1} of {classQuestions[selectedClass].length} questions
+            {index + 1} of 5 questions
           </div>
           <div className="timer">Time Left: {timeLeft}</div>
         </>
